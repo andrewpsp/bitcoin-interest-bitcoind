@@ -31,4 +31,4 @@ andrewpsp/bitcoind-interest
 Have a bug or an issue with this template? Open a new issue [here](https://github.com/andrewpsp/bitcoind-interest/issues) on GitHub or leave a comment on the [twitter](https://www.twitter.com/andrewpsp)
 
 
-** [docker-bitcoind](https://github.com/kylemanna/docker-bitcoind): referenced repo
+* [docker-bitcoind](https://github.com/kylemanna/docker-bitcoind): referenced repo
