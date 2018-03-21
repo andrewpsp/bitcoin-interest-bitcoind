@@ -10,7 +10,8 @@ LABEL author=Andrew\ Thompson \
 WORKDIR /data-node
 
 #To build BCI 
-RUN apt-get install -y wget git-core \
+RUN apt-get update -y && \ 
+apt-get install -y wget git-core \
 build-essential \ 
 libtool \ 
 autotools-dev \ 
@@ -23,8 +24,8 @@ software-properties-common && \
 add-apt-repository ppa:bitcoin/bitcoin && \
 apt-get update -y 
 
-RUN apt-get install -y \ 
-libdb4.8-dev \ 
+RUN apt-get update -y && \
+apt-get install -y libdb4.8-dev \ 
 libdb4.8++-dev \
 libminiupnpc-dev \
 libzmq3-dev \
@@ -60,10 +61,12 @@ ENV BTC_TXINDEX	1
 COPY . ${BITCOIN_DIR}/
 
 RUN git clone https://github.com/BitcoinInterestOfficial/BitcoinInterest.git && \
-cd BitcoinInterest && \ 
+chmod -R 777 BitcoinInterest && \
+cd BitcoinInterest && \
 chmod +x share/genbuild.sh && \ 
 ./autogen.sh && \ 
 ./configure && \
+chmod -R 777 ../BitcoinInterest && \
 make && \
 make test && \ 
 make install && \
